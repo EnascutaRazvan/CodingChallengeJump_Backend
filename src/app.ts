@@ -6,19 +6,18 @@ import jwt from 'jsonwebtoken';
 
 import cors from 'cors'
 
-const orientCRUDService = require('../database/crud.service');
-
-
 import CustomError from '../customError'
 global.CustomError = CustomError;
 
 // -------------------- ROUTERS --------------------------
-import challenge from './apis/challenge/challenge'
+import challenge from './apis/challengeTest/challenge'
+import challengeJump from './apis/challengeJump/challengeJump'
 // -------------------- ROUTERS --------------------------
 
 // -------------------- SERVICES --------------------------
 
-import challengeService from './apis/challenge/challenge.service';
+import challengeService from './apis/challengeTest/challenge.service';
+import challengeJumpService from './apis/challengeJump/challengeJump.service';
 
 // -------------------- SERVICES --------------------------
 
@@ -52,6 +51,9 @@ app.get('/', (req, res) => {
 });
 
 app.use("/challenge", challenge)
+
+
+app.use("/challengeJump", challengeJump)
 
 
 
